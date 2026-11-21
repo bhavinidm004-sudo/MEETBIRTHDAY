@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Birthday Surprise For You ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #080808;
+    color: #f5e6b8;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #d4af37;
+    --lightgold: #f8e7a0;
+    --black: #080808;
+    --card: #15130f;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+section {
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #b7a77d;
+    margin-bottom: 35px;
+    line-height: 1.7;
+}
+
+.gold-btn {
+    padding: 13px 28px;
+    background: linear-gradient(135deg, #b68a25, #f8e7a0, #b68a25);
+    border: none;
+    border-radius: 30px;
+    color: #151008;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.gold-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px #d4af3780;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    border-bottom: 1px solid #6e5724;
+    position: sticky;
+    top: 0;
+    background: #080808ed;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 21px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #f5e6b8;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:
+        radial-gradient(ellipse at center, #382a0d 0%, #110e08 45%, #080808 80%);
+    position: relative;
+    padding: 50px 20px;
+}
+
+.hero::before {
+    content: "✦";
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    color: var(--gold);
+    font-size: 30px;
+    animation: sparkle 2s infinite alternate;
+}
+
+.hero::after {
+    content: "✧";
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    color: var(--gold);
+    font-size: 40px;
+    animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+    from {opacity: 0.2; transform: scale(0.7);}
+    to {opacity: 1; transform: scale(1.3);}
+}
+
+.hero h3 {
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 9vw, 85px);
+    color: var(--lightgold);
+    text-shadow: 0 0 25px #d4af3770;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #c5b88f;
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.hero-cake {
+    font-size: 75px;
+    margin-bottom: 25px;
+    animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+    to {transform: translateY(-12px);}
+}
+
+/* MUSIC PLAYER */
+
+.music-player {
+    background: #17130a;
+    border: 1px solid #806525;
+    border-radius: 18px;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.music-player h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.music-player p {
+    color: #b6a77e;
+    margin-bottom: 15px;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.music-controls button {
+    background: var(--gold);
+    border: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+#musicStatus {
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.photo-card {
+    background: var(--card);
+    padding: 12px;
+    border: 1px solid #806525;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #d4af3740;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #292216;
+}
+
+.photo-card p {
+    color: var(--lightgold);
+    margin-top: 12px;
+}
+
+/* PHOTO VIEWER */
+
+#photoViewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: #000e;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.viewer-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.viewer-content img {
+    width: 100%;
+    max-height: 65vh;
+    object-fit: contain;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+}
+
+.viewer-content p {
+    margin: 15px;
+    color: var(--lightgold);
+}
+
+/* LETTER */
+
+.letter-area {
+    max-width: 650px;
+    margin: auto;
+}
+
+.envelope {
+    font-size: 100px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.envelope:hover {
+    transform: scale(1.1);
+}
+
+.letter {
+    display: none;
+    background: #f5e6c0;
+    color: #38260c;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.9;
+    margin-top: 25px;
+    animation: letterOpen 1s;
+    box-shadow: 0 0 25px #d4af3750;
+}
+
+.letter h2 {
+    text-align: center;
+    color: #8c641a;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+@keyframes letterOpen {
+    from {opacity: 0; transform: translateY(30px) scale(0.8);}
+    to {opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* QUIZ */
+
+.quiz-box {
+    max-width: 600px;
+    margin: auto;
+    background: var(--card);
+    border: 1px solid #806525;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.question {
+    font-size: 20px;
+    color: var(--lightgold);
+    margin: 20px 0;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 14px;
+    border: 1px solid #806525;
+    border-radius: 10px;
+    background: #211b10;
+    color: #f5e6b8;
+    font-size: 15px;
+    text-align: left;
+}
+
+.quiz-option:hover {
+    background: #57431c;
+}
+
+.quiz-option:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+#quizFeedback {
+    margin: 15px;
+    color: var(--gold);
+}
+
+#quizResult {
+    color: var(--lightgold);
+    margin: 20px;
+    line-height: 1.7;
+}
+
+/* CAKE */
+
+.cake-area {
+    max-width: 500px;
+    margin: auto;
+    padding: 35px;
+    background: var(--card);
+    border: 1px solid #806525;
+    border-radius: 20px;
+}
+
+.big-cake {
+    font-size: 110px;
+    margin: 25px;
+    animation: float 2s infinite alternate;
+}
+
+.candles {
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
+.flame {
+    display: inline-block;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    from {transform: scale(1);}
+    to {transform: scale(1.2) rotate(5deg);}
+}
+
+#cakeMessage {
+    margin-top: 20px;
+    color: var(--gold);
+    line-height: 1.8;
+}
+
+/* HUG */
+
+.hug-box {
+    max-width: 500px;
+    margin: auto;
+    padding: 35px;
+    background: var(--card);
+    border: 1px solid #806525;
+    border-radius: 20px;
+}
+
+.hug-emoji {
+    font-size: 85px;
+    margin: 20px;
+}
+
+.hug-animation {
+    animation: hug 0.8s ease-in-out 2;
+}
+
+@keyframes hug {
+    0%,100% {transform: scale(1);}
+    50% {transform: scale(1.4) rotate(-8deg);}
+}
+
+#hugMessage {
+    color: var(--gold);
+    margin: 15px;
+}
+
+/* FINALE */
+
+.finale {
+    background: radial-gradient(circle, #382a0d, #080808 75%);
+    min-height: 350px;
+}
+
+.finale h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    color: var(--lightgold);
+    margin: 25px 0;
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 9px;
+    height: 13px;
+    z-index: 500;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(800deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    padding: 25px;
+    border-top: 1px solid #806525;
+    text-align: center;
+    color: #a99561;
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 11px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .quiz-box, .cake-area, .hug-box {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">✦ Birthday Surprise ✦</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#memories">Memories</a>
+        <a href="#letter">Letter</a>
+        <a href="#cake">Cake</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <h3>A SPECIAL DAY FOR A SPECIAL PERSON</h3>
+
+    <h1>Happy Birthday!</h1>
+
+    <div class="hero-cake">🎂</div>
+
+    <p>
+        Today is all about you.<br>
+        A little celebration, a lot of love
+        and countless beautiful memories.
+    </p>
+
+    <button class="gold-btn" onclick="startSurprise()">
+        Start Your Surprise ✨
+    </button>
+
+</section>
+
+<!-- MUSIC PLAYER -->
+
+<section id="music">
+
+    <h2 class="section-title">A Song For You 🎵</h2>
+
+    <p class="subtitle">
+        Every beautiful friendship deserves its own soundtrack.
+    </p>
+
+    <div class="music-player">
+
+        <h3>♫ Birthday Playlist</h3>
+
+        <p>Our Special Song ❤️</p>
+
+        <audio id="birthdayMusic" loop>
+            <source src="birthday-song.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="music-controls">
+
+            <button onclick="toggleMusic()" id="playButton">▶</button>
+
+            <button onclick="stopMusic()">■</button>
+
+        </div>
+
+        <p id="musicStatus">Ready to play your song</p>
+
+    </div>
+
+</section>
+
+<!-- MEMORY GALLERY -->
+
+<section id="memories">
+
+    <h2 class="section-title">Our Memory Lane 📸</h2>
+
+    <p class="subtitle">
+        Some moments become memories.
+        Some memories become treasures.
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo-card"
+             onclick="viewPhoto('photo1.jpg','Our First Memory ❤️')">
+
+            <img src="photo1.jpg" alt="First memory">
+
+            <p>Our First Memory ❤️</p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="viewPhoto('photo2.jpg','Crazy Moments 😂')">
+
+            <img src="photo2.jpg" alt="Funny memory">
+
+            <p>Crazy Moments 😂</p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="viewPhoto('photo3.jpg','Unforgettable Day ✨')">
+
+            <img src="photo3.jpg" alt="Special day">
+
+            <p>Unforgettable Day ✨</p>
+
+        </div>
+
+        <div class="photo-card"
+             onclick="viewPhoto('photo4.jpg','Forever Friends 🫂')">
+
+            <img src="photo4.jpg" alt="Friendship">
+
+            <p>Forever Friends 🫂</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PHOTO VIEWER -->
+
+<div id="photoViewer" onclick="closePhoto()">
+
+    <div class="viewer-content">
+
+        <img id="largePhoto" src="" alt="Memory">
+
+        <p id="photoCaption"></p>
+
+        <button class="gold-btn">Close ✕</button>
+
+    </div>
+
+</div>
+
+<!-- FRIENDSHIP LETTER -->
+
+<section id="letter">
+
+    <h2 class="section-title">A Little Letter For You 💌</h2>
+
+    <p class="subtitle">
+        There are some things that are better written than spoken.
+    </p>
+
+    <div class="letter-area">
+
+        <div class="envelope" onclick="openLetter()">
+            💌
+        </div>
+
+        <p>Tap the envelope to open your letter</p>
+
+        <div class="letter" id="friendLetter">
+
+            <h2>Dear Best Friend ❤️</h2>
+
+            <p>
+                First of all, a very very HAPPY BIRTHDAY
+                to you! 🥳❤️
+            </p>
+
+            <p>
+                I don't think words will ever be enough
+                to explain how special your friendship
+                is to me. Some people enter our lives
+                unexpectedly and slowly become one of
+                the most important parts of our journey.
+                You are one of those people.
+            </p>
+
+            <p>
+                From our random conversations to our
+                silly jokes, from laughing over the
+                smallest things to sharing our thoughts,
+                every little moment has a special place
+                in my heart.
+            </p>
+
+            <p>
+                I love how we can be completely ourselves
+                around each other. We don't always need
+                a reason to talk, and even the most
+                ordinary days become special when
+                we spend time together.
+            </p>
+
+            <p>
+                Thank you for listening to me, supporting
+                me, understanding my craziness and being
+                a part of so many beautiful memories.
+                I hope you know how much you are valued.
+            </p>
+
+            <p>
+                We may grow older, get busy with our lives,
+                follow different dreams and meet many
+                new people, but I genuinely hope we
+                never lose this beautiful friendship.
+            </p>
+
+            <p>
+                I wish you all the happiness in the world.
+                May you achieve everything you dream of,
+                overcome every challenge and always
+                find reasons to smile.
+            </p>
+
+            <p>
+                Keep being the amazing person you are.
+                And please remember that no matter
+                what happens, you will always have
+                someone cheering for you.
+            </p>
+
+            <p>
+                Here's to more adventures, more memories,
+                more laughter, more pictures and many
+                more birthdays together!
+            </p>
+
+            <h2>Forever Grateful For You! 🫂</h2>
+
+            <p style="text-align:right">
+                With lots of love,<br>
+                Your Best Friend ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BIRTHDAY CAKE -->
+
+<section id="cake">
+
+    <h2 class="section-title">Make A Birthday Wish 🎂</h2>
+
+    <p class="subtitle">
+        Close your eyes, make a wish and blow out the candles!
+    </p>
+
+    <div class="cake-area">
+
+        <div class="candles" id="candles">
+            <span class="flame">🕯️</span>
+            <span class="flame">🕯️</span>
+            <span class="flame">🕯️</span>
+        </div>
+
+        <div class="big-cake">🎂</div>
+
+        <button class="gold-btn" onclick="blowCandles()">
+            Blow Out Candles 💨
+        </button>
+
+        <p id="cakeMessage">
+            Your birthday wish is waiting! ✨
+        </p>
+
+        <button class="gold-btn"
+                onclick="resetCake()"
+                style="margin-top:15px">
+            Light Candles Again 🔥
+        </button>
+
+    </div>
+
+</section>
+
+<!-- VIRTUAL HUG -->
+
+<section id="hug">
+
+    <h2 class="section-title">Sending You A Virtual Hug 🫂</h2>
+
+    <p class="subtitle">
+        Sometimes a hug says everything words cannot.
+    </p>
+
+    <div class="hug-box">
+
+        <div class="hug-emoji" id="hugEmoji">🧸</div>
+
+        <p id="hugMessage">
+            You deserve the biggest hug today!
+        </p>
+
+        <button class="gold-btn" onclick="sendHug()">
+            Get Your Big Hug ❤️
+        </button>
+
+    </div>
+
+</section>
+
+<!-- GRAND FINALE -->
+
+<section class="finale" id="finale">
+
+    <h2 class="section-title">One Last Surprise ✨</h2>
+
+    <h1>Happy Birthday! ❤️</h1>
+
+    <p class="subtitle">
+        May your life always be filled with
+        happiness, love and beautiful memories.
+    </p>
+
+    <button class="gold-btn" onclick="celebrate()">
+        Let's Celebrate! 🎉
+    </button>
+
+    <p id="finalMessage"
+       style="margin-top:25px;color:#f8e7a0">
+    </p>
+
+</section>
+
+<footer>
+    Made With ❤️ Just For You | Forever Friends ✨
+</footer>
+
+
+<script>
+
+// START SURPRISE
+
+function startSurprise() {
+    document.getElementById("memories").scrollIntoView({
+        behavior: "smooth"
+    });
+    celebrate();
+}
+
+
+// MUSIC PLAYER
+
+const music = document.getElementById("birthdayMusic");
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play().then(() => {
+            document.getElementById("playButton").innerText = "Ⅱ";
+            document.getElementById("musicStatus").innerText =
+                "Now Playing ♫";
+        }).catch(() => {
+            document.getElementById("musicStatus").innerText =
+                "Please add your birthday-song.mp3 file.";
+        });
+
+    } else {
+
+        music.pause();
+
+        document.getElementById("playButton").innerText = "▶";
+
+        document.getElementById("musicStatus").innerText =
+            "Music Paused";
+
+    }
+}
+
+function stopMusic() {
+
+    music.pause();
+    music.currentTime = 0;
+
+    document.getElementById("playButton").innerText = "▶";
+
+    document.getElementById("musicStatus").innerText =
+        "Music Stopped";
+
+}
+
+
+// MEMORY GALLERY
+
+function viewPhoto(src, caption) {
+
+    document.getElementById("largePhoto").src = src;
+
+    document.getElementById("photoCaption").innerText = caption;
+
+    document.getElementById("photoViewer").style.display = "flex";
+
+}
+
+function closePhoto() {
+
+    document.getElementById("photoViewer").style.display = "none";
+
+}
+
+
+// ANIMATED LETTER
+
+function openLetter() {
+
+    const letter = document.getElementById("friendLetter");
+
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+    }
+
+}
+
+
+// FRIENDSHIP QUIZ
+
+// CUSTOMISE THESE QUESTIONS AND ANSWERS!
+
+const quizData = [
+
+    {
+        question: "What is my favourite colour?",
+        options: ["Black", "Pink", "Blue", "White"],
+        answer: 0
+    },
+
+    {
+        question: "What do I love doing the most?",
+        options: ["Sleeping", "Shopping", "Travelling", "Eating"],
+        answer: 2
+    },
+
+    {
+        question: "What is my favourite food?",
+        options: ["Pizza", "Pasta", "Burger", "Biryani"],
+        answer: 1
+    },
+
+    {
+        question: "What describes our friendship best?",
+        options: [
+            "Partners in crime",
+            "Always arguing",
+            "Never serious",
+            "All of these"
+        ],
+        answer: 3
+    },
+
+    {
+        question: "What should we do more often?",
+        options: [
+            "Go on trips",
+            "Take pictures",
+            "Eat together",
+            "Everything!"
+        ],
+        answer: 3
+    }
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+
+    answered = false;
+
+    const q = quizData[currentQuestion];
+
+    document.getElementById("questionNumber").innerText =
+        "Question " + (currentQuestion + 1) +
+        " of " + quizData.length;
+
+    document.getElementById("questionText").innerText =
+        q.question;
+
+    document.getElementById("quizFeedback").innerText = "";
+
+    document.getElementById("nextButton").style.display = "none";
+
+    const options = document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "quiz-option";
+
+        button.innerText = option;
+
+        button.onclick = function() {
+            checkAnswer(index);
+        };
+
+        options.appendChild(button);
+
+    });
+
+}
+
+function checkAnswer(selected) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = quizData[currentQuestion];
+
+    const buttons = document.querySelectorAll(".quiz-option");
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    if (selected === q.answer) {
+
+        score++;
+
+        document.getElementById("quizFeedback").innerText =
+            "Yayyy! You know me so well! ❤️";
+
+    } else {
+
+        document.getElementById("quizFeedback").innerText =
+            "Oops! Nice try! 😂";
+
+    }
+
+    document.getElementById("nextButton").style.display = "inline-block";
+
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion < quizData.length) {
+
+        loadQuestion();
+
+    } else {
+
+        document.getElementById("questionNumber").innerText =
+            "Quiz Completed!";
+
+        document.getElementById("questionText").innerText = "";
+
+        document.getElementById("options").innerHTML = "";
+
+        document.getElementById("quizFeedback").innerText = "";
+
+        document.getElementById("nextButton").style.display = "none";
+
+        document.getElementById("quizResult").innerHTML =
+            "You scored " + score + " out of " +
+            quizData.length + "! ❤️<br><br>" +
+            "No matter your score, you are still my favourite human! 🫂";
+
+        document.getElementById("restartButton").style.display =
+            "inline-block";
+
+    }
+
+}
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quizResult").innerHTML = "";
+
+    document.getElementById("restartButton").style.display = "none";
+
+    loadQuestion();
+
+}
+
+loadQuestion();
+
+
+// BIRTHDAY CAKE
+
+function blowCandles() {
+
+    document.getElementById("candles").innerHTML = "💨";
+
+    document.getElementById("cakeMessage").innerHTML =
+        "✨ YOUR WISH HAS BEEN SENT TO THE UNIVERSE! ✨<br>" +
+        "May all your dreams come true! ❤️";
+
+    celebrate();
+
+}
+
+function resetCake() {
+
+    document.getElementById("candles").innerHTML =
+        '<span class="flame">🕯️</span>' +
+        '<span class="flame">🕯️</span>' +
+        '<span class="flame">🕯️</span>';
+
+    document.getElementById("cakeMessage").innerText =
+        "Make another beautiful wish! ✨";
+
+}
+
+
+// VIRTUAL HUG
+
+function sendHug() {
+
+    const emoji = document.getElementById("hugEmoji");
+
+    emoji.classList.remove("hug-animation");
+
+    void emoji.offsetWidth;
+
+    emoji.classList.add("hug-animation");
+
+    document.getElementById("hugMessage").innerText =
+        "BIGGEST HUG EVER! 🫂❤️ You are loved and appreciated!";
+
+}
+
+
+// CONFETTI CELEBRATION
+
+function celebrate() {
+
+    const symbols = ["✦", "★", "●", "♥"];
+
+    const colors = [
+        "#d4af37",
+        "#f8e7a0",
+        "#ffffff",
+        "#b68a25",
+        "#e6c56a"
+    ];
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerText =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+
+        piece.style.color =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.fontSize =
+            (Math.random() * 12 + 8) + "px";
+
+        piece.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 5000);
+
+    }
+
+}
+
+
+// FINAL CELEBRATION
+
+function celebrateFinal() {
+
+    celebrate();
+
+}
+
+function celebrate() {
+
+    const symbols = ["✦", "★", "●", "♥"];
+
+    const colors = [
+        "#d4af37",
+        "#f8e7a0",
+        "#ffffff",
+        "#b68a25",
+        "#e6c56a"
+    ];
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerText =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+
+        piece.style.color =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.fontSize =
+            (Math.random() * 12 + 8) + "px";
+
+        piece.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5000);
+
+    }
+
+}
+
+document.querySelector("#finale .gold-btn").onclick = function() {
+
+    celebrate();
+
+    document.getElementById("finalMessage").innerText =
+        "You deserve all the happiness in the universe! ❤️🥳";
+
+};
+
+</script>
+
+</body>
+</html>
